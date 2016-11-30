@@ -4,57 +4,94 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
+#include <signal.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <cstdio>
+//#include <regex>
+/*
+#include <signal.h>//-
+#include <stdlib.h>//-- for signal
+#include <unistd.h>//-
+
+void signal_callback_handler(int signum) {
+   printf("\nCaught signal %d\n",signum);
+   if (signum == 2) {
+        printf("(Ctrl+^C)\n");
+   }
+}*/
 
 using namespace std;
 
+
 int main() {
+    //signal(SIGINT, signal_callback_handler);
 
 	printf("OOP lab work #4\nVariant - 20, Level - B\nTask: Write Multi_Set of charecters\nWriter: Alexander Subtselnyi\n\n");
 	printf("Menu:\n1. Start program\n2. Exit\n\nMake your choice ");
 	bool cando=false;
+	//regex integer("^[0-9x+*-/(). ]+$");
 	do{
     try{
-	int t;
-	scanf("%d", &t);
-	switch (t) {
-	case 1: {
+	char t[20];
+	scanf("%s",&t);
+	if (strlen(t)>1) throw UException ("to many arguments");
+	char k=t[0];
+	switch (k) {
+	case '1': {
 
-		char str[20];
+		char str[20],str1[20];
 		bool ready=false;
-		int len;
+		int len=0,len1=0;
+
 		do{
+        str[0]='/0';
         cout<<"Enter set 1 through ','"<<endl;
-		cin>>str;
+        /*do{
+		scanf("%s",&str1);
+		len1 = strlen(str1);
+		len+=len1;
+		strcpy(str,str1);
+        }while(str1[len1]!='\0');*/
+        scanf("%s",str);
 		len = strlen(str);
         try{
             bool flag=true,
             prevflag=true;
             for (int i=1;i<len;i+=2){
-                if (str[i]==',') flag=!flag;
-                if (prevflag==flag) throw UException("substring in your Multi_Set");
+                if (str[i]!=',') flag=false;
+                if (!flag) throw UException("substring in your Multi_Set");
+                if ((int)str[i-1]<33||int(str[i-1])>127||(int)str[0]<33||(int)str[0]>127) throw UException("not a symbol of ASCII");
                 prevflag=flag;
             }
             ready=false;
+            //if(!regex_match(str, integer)) throw UException("Wrong input format!!!");
         }
         catch (UException &e){
             e.show();
             ready=true;
+            str[0]='/0';
+
         }
 		}while (ready);
+
         Multi_Set A(str,len);
+
 		str[0]='/0';
 
-		cin>>str;
 		do{
+        str[0]='/0';
         cout<<"Enter set 2 through ','"<<endl;
-		cin>>str;
+		scanf("%s",&str);
 		len = strlen(str);
         try{
             bool flag=true,
             prevflag=true;
             for (int i=1;i<len;i+=2){
-                if (str[i]==',') flag=!flag;
-                if (prevflag==flag) throw UException("substring in your Multi_Set");
+                if (str[i]!=',') flag=false;
+                if (!flag) throw UException("substring in your Multi_Set");
+                if ((int)str[i-1]<33||int(str[i-1])>127||(int)str[0]<33||(int)str[0]>127) throw UException("not a symbol of ASCII");
                 prevflag=flag;
             }
             ready=false;
@@ -62,6 +99,7 @@ int main() {
         catch (UException &e){
             e.show();
             ready=true;
+            str[0]='/0';
         }
 		}while (ready);
 		Multi_Set B(str,len);
@@ -118,13 +156,14 @@ int main() {
 		printf("\n");
         cout<<"OK";
 	}
-	case 2: return 0;
-	default: throw Exception ("Incorrect input");
+	case '2': cando=false;break;return 0;
+	default: throw UException ("Incorrect input");
 	}
     }
     catch(UException& e){
         e.show();
         cando=true;
+
     }
 	}while (cando);
 
