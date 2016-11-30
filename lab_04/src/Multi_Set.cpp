@@ -16,6 +16,7 @@ Multi_Set::Multi_Set(char* str,int len) {
     char * pch = strtok (str,",");
     while (pch != NULL)
     {
+
         strcpy(&elements[i++],pch);
         capacity++;
         pch = strtok (NULL, ",");
