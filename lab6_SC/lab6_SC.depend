@@ -1,0 +1,73 @@
+# depslib dependency file v1.0
+1481396233 source:g:\учеба бл\c++\lab6_sc\src\abonement.cpp
+	"Abonement.h"
+
+1481397870 g:\учеба бл\c++\lab6_sc\include\abonement.h
+	"service_struct.h"
+	"service_pack.h"
+	<iostream>
+
+1481492673 source:g:\учеба бл\c++\lab6_sc\src\client.cpp
+	"Client.h"
+
+1481492689 g:\учеба бл\c++\lab6_sc\include\client.h
+	<vector>
+	"Abonement.h"
+	"order.h"
+
+1481498365 source:g:\учеба бл\c++\lab6_sc\src\sc.cpp
+	"SC.h"
+
+1481498137 g:\учеба бл\c++\lab6_sc\include\sc.h
+	"Client.h"
+	"order.h"
+	"Collection.h"
+	<vector>
+	"service_price.h"
+
+1481390205 source:g:\учеба бл\c++\lab6_sc\src\uexception.cpp
+	"UException.h"
+	<cstdio>
+	<string.h>
+
+1481390194 g:\учеба бл\c++\lab6_sc\include\uexception.h
+
+1481498987 source:g:\учеба бл\c++\lab6_sc\main.cpp
+	<iostream>
+	<cstdlib>
+	<algorithm>
+	<stdio.h>
+	"SC.h"
+	"Client.h"
+	"service_struct.h"
+	"service_pack.h"
+	"Order.h"
+	"Abonement.h"
+	"UException.h"
+	<string.h>
+
+1481482651 g:\учеба бл\c++\lab6_sc\include\service_struct.h
+
+1481391688 g:\учеба бл\c++\lab6_sc\include\service_pack.h
+
+1481495225 g:\учеба бл\c++\lab6_sc\include\order.h
+	"service_struct.h"
+	"service_pack.h"
+	<stdlib.h>
+	<time.h>
+	<iostream>
+	<stdio.h>
+	<string.h>
+	"UException.h"
+	"service_price.h"
+
+1481495207 source:g:\учеба бл\c++\lab6_sc\src\order.cpp
+	"Order.h"
+
+1481497726 g:\учеба бл\c++\lab6_sc\include\collection.h
+
+1481477445 source:g:\учеба бл\c++\lab6_sc\src\collection.cpp
+	"Collection.h"
+
+1481482809 g:\учеба бл\c++\lab6_sc\include\service_price.h
+
